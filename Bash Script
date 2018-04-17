@@ -1,0 +1,88 @@
+Sam@SamPatterson MINGW64 ~ (master)
+$ git clone https://github.com/sampatter/Final812.git
+Cloning into 'Final812'...
+remote: Counting objects: 15, done.
+remote: Compressing objects: 100% (12/12), done.
+remote: Total 15 (delta 2), reused 3 (delta 0), pack-reused 0
+Unpacking objects: 100% (15/15), done.
+
+Sam@SamPatterson MINGW64 ~ (master)
+$ cd documents
+
+Sam@SamPatterson MINGW64 ~/documents (master)
+$ cd 812Project
+bash: cd: 812Project: No such file or directory
+
+Sam@SamPatterson MINGW64 ~/documents (master)
+$ cd 812-Project
+
+Sam@SamPatterson MINGW64 ~/documents/812-Project (master)
+$ git add .
+
+Sam@SamPatterson MINGW64 ~/documents/812-Project (master)
+$ git commit -m "add all files"
+On branch master
+nothing to commit, working tree clean
+
+Sam@SamPatterson MINGW64 ~/documents/812-Project (master)
+$ git push origin
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin master
+
+
+Sam@SamPatterson MINGW64 ~/documents/812-Project (master)
+$ git remote set url origin https://github.com/sampatter/Final812.git
+error: Unknown subcommand: set
+usage: git remote [-v | --verbose]
+   or: git remote add [-t <branch>] [-m <master>] [-f] [--tags | --no-tags] [--mirror=<fetch|push>] <name> <url>
+   or: git remote rename <old> <new>
+   or: git remote remove <name>
+   or: git remote set-head <name> (-a | --auto | -d | --delete | <branch>)
+   or: git remote [-v | --verbose] show [-n] <name>
+   or: git remote prune [-n | --dry-run] <name>
+   or: git remote [-v | --verbose] update [-p | --prune] [(<group> | <remote>)...]
+   or: git remote set-branches [--add] <name> <branch>...
+   or: git remote get-url [--push] [--all] <name>
+   or: git remote set-url [--push] <name> <newurl> [<oldurl>]
+   or: git remote set-url --add <name> <newurl>
+   or: git remote set-url --delete <name> <url>
+
+    -v, --verbose         be verbose; must be placed before a subcommand
+
+
+Sam@SamPatterson MINGW64 ~/documents/812-Project (master)
+$ git remote set-url origin https://github.com/sampatter/Final812.git
+
+Sam@SamPatterson MINGW64 ~/documents/812-Project (master)
+$ git remote -v
+origin  https://github.com/sampatter/Final812.git (fetch)
+origin  https://github.com/sampatter/Final812.git (push)
+project https://github.com/sampatter/sampatter.github.io.git (fetch)
+project https://github.com/sampatter/sampatter.github.io.git (push)
+
+Sam@SamPatterson MINGW64 ~/documents/812-Project (master)
+$ git add .
+
+Sam@SamPatterson MINGW64 ~/documents/812-Project (master)
+$ git commit -m "all changes"
+On branch master
+nothing to commit, working tree clean
+
+Sam@SamPatterson MINGW64 ~/documents/812-Project (master)
+$ git push origin master
+To https://github.com/sampatter/Final812.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'https://github.com/sampatter/Final812.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+Sam@SamPatterson MINGW64 ~/documents/812-Project (master)
+$ ^C
+
+Sam@SamPatterson MINGW64 ~/documents/812-Project (master)
+$
