@@ -191,3 +191,38 @@ BodyLength<-Plot_Rank_ZScore+geom_boxplot()+theme(plot.background=element_blank(
                                                   legend.title=element_text(size=15),
                                                   legend.background=element_rect(color="black",size=.5, linetype="solid"),legend.position=c(.88,.85))+ labs(x="Experimental Rank") + labs(y="Body Length (cm)")
 BodyLength
+
+
+#Nested ANOVA for Rank and Treatment (Nested)
+#Nested ANOVA - useing nlme for unbalanced anaova desing  
+#Data Conversion 
+Data = read.table(textConnection(Input),header=TRUE)
+Data$Treatment = as.factor(Data$Treatment)
+
+library(nlme)
+
+#Model Construction 
+model = lme(Length ~ Treatment, random=~1|Replicate,data=Data,method="REML")
+model2 = lme(Length ~ Rank, random=~1|Replicate,data=Data,method="REML")
+
+
+#ANOVA
+anova.lme(model, 
+          type="sequential", 
+          adjustSigma = FALSE)
+anova.lme(model2, 
+          type="sequential", 
+          adjustSigma = FALSE)
+library(multcomp)
+
+#Posthoc comparisons 
+posthoc = glht(model ,
+               linfct = mcp(Treatment="Tukey"))
+posthoc2 = glht(model2,
+               linfct = mcp(Rank="Tukey"))
+mcs = summary(posthoc,
+              test=adjusted("bonferroni"))
+mcs2 = summary(posthoc2,
+              test=adjusted("bonferroni"))
+mcs
+mcs2
