@@ -17,7 +17,7 @@ library(rgeos)
 
 setwd("C:/Users/Alex/Desktop/Bio812/Group assignment")
 samples.dat <- read.csv("./Data/Excel/SampleLocations.csv")
-samples <- samples.dat %>% rename(Site = ï..Site)
+samples <- samples.dat %>% rename(Site = Ã¯..Site)
 
 
 #Extracting just the coordinates
