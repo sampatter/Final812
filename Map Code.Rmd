@@ -17,7 +17,7 @@ library(rgeos)
 
 setwd("C:/Users/Alex/Desktop/Bio812/Group assignment")
 samples.dat <- read.csv("./Data/Excel/SampleLocations.csv")
-samples <- samples.dat %>% rename(Site = ï..Site)
+samples <- samples.dat %>% rename(Site = Ã¯..Site)
 
 
 #Extracting just the coordinates
@@ -42,7 +42,6 @@ pt5_map
 #what else do we want on a map?
 
 #50km buffer, wind direction, industry sites?
-#How can we make an interactive map
 ```
 
 
@@ -73,22 +72,17 @@ buffArea <- gBuffer(SamplesUTM[3, ], width=200000, capStyle="SQUARE", byid=TRUE)
 writeOGR(buffArea, "BuffArea", "BuffArea", driver="ESRI Shapefile") #still looks weird, but less weird
 
 #Can i add these buffers to my map in R?
-
-
 ```
 
 
 Can I use R to clip pipelines and other data?
 Pipelines and wellsites are already in NAD83, so they don't need to be converted
 
-Clipping pipelines takes a looooooong time
+Clipping pipelines to large area
 ```{r}
 pipelines <- readOGR(dsn="./Data/Shapefiles", layer="Pipelines_GCS_NAD83")
 clipPipelines <- gIntersection(pipelines, buffArea, byid=TRUE)
 ```
-
-
-
 
 
 #Maybe add EC PAH data to Samples so that it can be displayed on map?
@@ -149,13 +143,6 @@ require(raster)
 projection(PAH2014_1) = "+datum=NAD83 +init=espg:3403"
 shapefile(PAH2014_1, "PAH2014", overwrite=T)
 ```
-
-
-From the raster of PAHs, is there actually big difference between near and far field?
-
-
-
-
 
 
 
