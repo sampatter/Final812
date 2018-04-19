@@ -1,10 +1,10 @@
 #Load Data to work with - 812 Project Files
-Setwd("~/812-Project Files")
+setwd("~/812-Project Files")
 getwd()
-Bodydata = read.csv(Bodylenghtdata_Patterson_812.csv)
+Bodydata = read.csv("Bodylenghtdata_Patterson_812.csv")
 
 #Set smaller name - Easier to work with 
-BD = Bodylenghtdata_Patterson_812.csv
+BD = Bodydata
 
 #Regular Expression to remove input errors - Trim out all input errors in site locations between the 6 samples dates 
 # 1) fix F -> f (Rank)
